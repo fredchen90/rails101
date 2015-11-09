@@ -1,0 +1,16 @@
+<%= link_to("new group", new_group_path) %>
+<br>
+<% @groups.each do |group| %>
+  <tr>
+    <td>#<%= group.id %></td>
+    <td><%= link_to(group.title, group_path(group)) %></td>
+    <td>
+      <%= link_to("edit", edit_group_path(group)) %>
+      <%= link_to("delete", group_path(group), method: :delete) %>
+    </td>
+    <br>
+    <td><%= group.description %></td>
+    <br>
+  </tr>
+<% end %>
+
