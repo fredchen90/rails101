@@ -29,6 +29,8 @@ gem "simple_form"
 
 gem "awesome_rails_console"
 
+gem "devise"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
