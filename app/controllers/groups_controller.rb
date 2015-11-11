@@ -15,7 +15,7 @@ class GroupsController < ApplicationController
   end
 
   def create
-    @group = Group.new(group_param)
+    @group = current_user.groups.new(group_param)
     if @group.save
       redirect_to groups_path
     else
@@ -24,11 +24,11 @@ class GroupsController < ApplicationController
   end
 
   def edit
-    @group = Group.find(params[:id])
+    @group = current_user.groups.find(params[:id])
   end
 
   def update
-    @group = Group.find(params[:id])
+    @group = current_user.groups.find(params[:id])
     if @group.update(group_param)
       redirect_to groups_path
     else
@@ -38,7 +38,7 @@ class GroupsController < ApplicationController
   end
 
   def destroy
-    @group = Group.find(params[:id])
+    @group = current_user.groups.find(params[:id])
     @group.destroy
     redirect_to groups_path
   end
