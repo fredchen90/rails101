@@ -3,6 +3,13 @@
     <td>
       <%= link_to("edit", edit_group_path(@group)) %>
       <%= link_to("post", new_group_post_path(@group)) %>
+      <% if current_user.present? %>
+        <% if current_user.is_member_of?(@group) %>
+          <%= link_to("Quit Group", quit_group_path(@group), method: :post) %>
+        <% else %>
+          <%= link_to("Join Group", join_group_path(@group), method: :post) %>
+        <% end %>
+      <% end %>
     </td>
     <br>
     <td><%= @group.description %></td>
