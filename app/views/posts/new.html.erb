@@ -1,0 +1,5 @@
+<H1>新增文章</H1>
+<%= simple_form_for [@group, @post] do |f| %>
+  <%= f.input :content %>
+  <%= f.submit "submit" %>
+<% end %>

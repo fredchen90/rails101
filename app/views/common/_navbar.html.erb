@@ -1,3 +1,11 @@
 <div>
   Rails 101
+  <% if !current_user %>
+    <%= link_to("註冊", new_user_registration_path) %>
+    <%= link_to("登入", new_user_session_path) %>
+  <% else %>
+    Hi!, <%= current_user.name %>
+    <%= link_to("帳號設定 ", edit_user_registration_path) %>
+    <%= link_to("登出", destroy_user_session_path, method: :delete) %>
+  <% end %>
 </div>
