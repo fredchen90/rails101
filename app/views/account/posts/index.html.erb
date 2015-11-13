@@ -1,0 +1,19 @@
+<h2>My Post</h2>
+
+<div>
+  <td> # </td>
+  <td> Content </td>
+  <td> Group name </td>
+  <td> Last update</td>
+</div>
+
+<div>
+  <% @posts.each do |post| %>
+    <tr>
+      <td> <%= post.content %> </td>
+      <td> <%= post.group.title %> </td>
+      <td> <%= post.updated_at %> </td>
+    </tr>
+    <br>
+  <% end %>
+</div>
