@@ -1,0 +1,21 @@
+<h2>My Group</h2>
+
+<div>
+  <td> # </td>
+  <td> Title </td>
+  <td> Description </td>
+  <td> Post Count </td>
+  <td> Last Update </td>
+</div>
+
+<div>
+  <% @groups.each do |group| %>
+    <tr>
+      <td> <%= link_to(group.title, group_path(group)) %> </td>
+      <td> <%= group.description %> </td>
+      <td> <%= group.posts.size %> </td>
+      <td> <%= group.updated_at %> </td>
+    </tr>
+    <br>
+  <% end %>
+</div>

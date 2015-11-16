@@ -5,6 +5,8 @@
     <%= link_to("登入", new_user_session_path) %>
   <% else %>
     Hi!, <%= current_user.name %>
+    <%= link_to("My Group ", account_groups_path) %>
+    <%= link_to("My Post ", account_posts_path) %>
     <%= link_to("帳號設定 ", edit_user_registration_path) %>
     <%= link_to("登出", destroy_user_session_path, method: :delete) %>
   <% end %>
