@@ -1,5 +1,2 @@
 <H1>修改文章</H1>
-<%= simple_form_for [@group, @post] do |f| %>
-  <%= f.input :content %>
-  <%= f.submit "submit" %>
-<% end %>
+<%= render "form", group: @group, post: @post %>

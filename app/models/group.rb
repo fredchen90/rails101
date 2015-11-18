@@ -9,6 +9,8 @@ class Group < ActiveRecord::Base
 
   after_create :create_join
 
+  scope :recent, -> { order("posts_count DESC") }
+
   def editable_by?(user)
     user && user == owner
   end
