@@ -21,7 +21,13 @@
 # role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value
 # role :db,  %w{deploy@example.com}
 
+role :app, "52.192.208.53"
+role :web, "52.192.208.53"
+role :db,  "52.192.208.53"
 
+set :ssh_options, {
+  user: "apps"
+}
 
 # Configuration
 # =============
