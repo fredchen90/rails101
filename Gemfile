@@ -33,6 +33,8 @@ gem "devise"
 
 gem "mysql2", '~> 0.3.0'
 
+gem "unicorn"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -56,6 +58,6 @@ group :development do
   gem "capistrano",  "~> 3.1", require: false
   gem "capistrano-rails", "~> 1.1", require: false
   gem "capistrano-rbenv", "~> 2.0", require: false # production server use rbenv
-  gem "capistrano-passenger"
+  gem "capistrano3-unicorn"
 end
 

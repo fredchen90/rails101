@@ -11,7 +11,7 @@ set :rbenv_map_bins, %w(rake gem bundle ruby rails)
 set :rbenv_roles, :all
 
 # Default branch is :master
-# ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
+set :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/home/apps/rails101"
@@ -46,15 +46,11 @@ set :linked_dirs, fetch(:linked_dirs, []).push("bin", "log", "tmp/pids", "tmp/ca
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
+
+after "deploy:publishing", "deploy:restart"
 namespace :deploy do
-
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-      # Here we can do anything such as:
-      # within release_path do
-      #   execute :rake, 'cache:clear'
-      # end
-    end
+  task :restart do
+    invoke "unicorn:reload"
   end
-
 end
+
